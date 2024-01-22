@@ -15,15 +15,6 @@ conexao.once("open", () => {
 const app = express();
 routes(app);
 
-
-app.put("/livros/:id", (req, res) => {
-    const { id } = req.params;
-    const updateBook = req.body;
-    const indice = buscaIndiceLivroPorId(id);
-    livros[indice] = updateBook;
-    res.status(200).json({ mensagem: "Livro editado com Sucesso!" });
-})
-
 app.delete("/livros/:id", (req, res) => {
     const { id } = req.params;
     const indice = buscaIndiceLivroPorId(id);
