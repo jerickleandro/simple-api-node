@@ -15,13 +15,4 @@ conexao.once("open", () => {
 const app = express();
 routes(app);
 
-app.delete("/livros/:id", (req, res) => {
-    const { id } = req.params;
-    const indice = buscaIndiceLivroPorId(id);
-    if (indice !== -1) {
-        array.splice(indice, 1);
-        res.status(200).json({ mensagem: "Livro deletado com Sucesso!" });
-    }
-    res.status(404).json({ mensagem: "Não foi encontrado livro com esse id" });
-});
 export default app;
